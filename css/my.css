@@ -1,0 +1,31 @@
+/* Here is your custom css styles. */
+@font-face{
+    font-family: 'pingfang';
+    src: url('../font/pingfang.ttf');
+}
+
+body{
+    font-family: 'pingfang';
+}
+
+
+
+/*@font-face{
+    font-family: 'shouzhi';
+    src: url('../font/shouzhi.ttf');
+}
+
+body{
+    font-family: 'shouzhi';
+}*/
+
+
+
+@font-face{
+    font-family: 'fangzhengjingleiti';
+    src: url('../font/fangzhengjingleiti.ttf');
+}
+
+.diyfont{
+    font-family: 'fangzhengjingleiti';
+}
