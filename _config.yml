@@ -1,0 +1,205 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: 青眸
+# subtitle: The Truman show
+# description: '人生若只如初见，何事秋风悲画扇。'
+subtitle: 
+description: ''
+keywords: ''
+author: 青眸
+language: zh-CN
+timezone: ''
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://blog.qingmou.online
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: false
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+
+prism_plugin:
+  mode: 'preprocess'    # realtime/preprocess
+  theme: 'tomorrow'
+  line_number: true    # default false
+  custom_css:
+
+search:
+  path: search.xml
+  field: post
+
+permalink_pinyin:
+  enable: true
+  separator: '-' # default: '-'
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+
+Plugins:
+- hexo-generator-baidu-sitemap
+- hexo-generator-sitemap
+
+baidusitemap:
+    path: baidusitemap.xml
+sitemap:
+    path: sitemap.xml
+  
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 12
+  order_by: -date
+  
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 12
+pagination_dir: page
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: matery
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+- type: git
+  repository:
+    github: git@github.com:nalanchenye/nalanchenye.github.io.git
+    # coding: git@e.coding.net:nalanchenye/nalanchenye.git
+  branch: master
+
+
+live2d:
+  enable: false
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  log: false
+  model:
+    use: live2d-widget-model-shizuku
+  display:
+    position: left
+    width: 200
+    height: 400
+  mobile:
+    show: false
+  react:
+    opacity: 0.7
+
+baidu_url_submit:
+  count: 100
+  host: blog.qingmou.online
+  token:  # 填写你的百度统计token，不写也没事
+  path: baidu_urls.txt
+
+# # 雪花特效
+snow:
+  enable: false
+
+
+# minifier
+all_minifier: true
+html_minifier:
+  enable: true
+  ignore_error: false
+  exclude:
+css_minifier:
+  enable: true
+  exclude:
+    - '*.min.css'
+js_minifier:
+  enable: false
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '*.min.js'
+image_minifier:
+  enable: false
+  interlaced: false
+  multipass: false
+  optimizationLevel: 2
+  pngquant: false
+  progressive: false
+
+
+  # plugins:
+  # - hexo-qiniu-sync
+# qiniu:
+#   offline: false
+#   sync: true
+#   bucket: [qingmou]
+#     # secret_file: sec/qn.json or C: # 这行代码最好注释，否则会报错
+#     # 在 [个人面板——密钥管理] 里面你可以找到你下面这两对密钥
+#   access_key: [9VFaFiMxyIdSr4BrMu5lupbMDynNfFTbjZDggeYW]  
+#   secret_key: [IdwVmnYcE8WJcU1SyErNfZfRT0wDOVwexDc_PuFD]
+#   dirPrefix: static # "这个是七牛的目录名，七牛存储空间没有显示的目录。所谓目录，就是在指定访问域名后面先加上你的目录名，再加上你上传的图片名，这样就相当于目录了，来区分图片的分类。"
+#   urlPrefix: http://qingmou.s3-cn-east-1.qiniucs.com/static # "这里第一个位置填写刚才系统分配给你的域名，第二个位置填写上一行的 dirPrefix 的内容。"
+#   up_host: http://upload.qiniu.com  # "华东区为这个默认访问域名，具体可以查看 https://developer.qiniu.com/kodo/manual/1671/region-endpoint 这个网址。"
+#   local_dir: qiniu_static # "在hexo主目录下将会自动创建的你的文件同步文件夹名，可以自定义。"
+#   update_exist: true
+#   image: 
+#     folder: images
+#     extend: 
+#   js:
+#     folder: js
+#   css:
+#     folder: css
